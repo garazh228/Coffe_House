@@ -9,21 +9,35 @@
 /* Begin PBXBuildFile section */
 		2EE5BD9B2BBBDD43008018EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE5BD9A2BBBDD43008018EF /* AppDelegate.swift */; };
 		2EE5BD9D2BBBDD43008018EF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE5BD9C2BBBDD43008018EF /* SceneDelegate.swift */; };
-		2EE5BD9F2BBBDD43008018EF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE5BD9E2BBBDD43008018EF /* ViewController.swift */; };
-		2EE5BDA22BBBDD43008018EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EE5BDA02BBBDD43008018EF /* Main.storyboard */; };
 		2EE5BDA42BBBDD45008018EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EE5BDA32BBBDD45008018EF /* Assets.xcassets */; };
 		2EE5BDA72BBBDD45008018EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EE5BDA52BBBDD45008018EF /* LaunchScreen.storyboard */; };
+		2EE5BDB22BBBDE51008018EF /* UserAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE5BDB12BBBDE51008018EF /* UserAuthViewController.swift */; };
+		2EE5BDB52BBBE881008018EF /* UiColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE5BDB42BBBE881008018EF /* UiColor.swift */; };
+		2EE5BDB82BBBF40F008018EF /* SecondUserAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE5BDB72BBBF40F008018EF /* SecondUserAuthViewController.swift */; };
+		2EE5BDBB2BBC0221008018EF /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE5BDBA2BBC0221008018EF /* MenuViewController.swift */; };
+		2EE5BDBD2BC87CEF008018EF /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE5BDBC2BC87CEF008018EF /* MenuTableViewCell.swift */; };
+		2EE5BDC02BCD14B3008018EF /* ScanQrButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE5BDBF2BCD14B3008018EF /* ScanQrButton.swift */; };
+		2EE5BDC42BCD1781008018EF /* CustonTapBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE5BDC32BCD1781008018EF /* CustonTapBarController.swift */; };
+		2EE5BDC62BCD17EA008018EF /* CustomTapBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE5BDC52BCD17EA008018EF /* CustomTapBar.swift */; };
+		2EE5BDC82BD3CA7D008018EF /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE5BDC72BD3CA7C008018EF /* CartViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2EE5BD972BBBDD43008018EF /* Coffe_House.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Coffe_House.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EE5BD9A2BBBDD43008018EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2EE5BD9C2BBBDD43008018EF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2EE5BD9E2BBBDD43008018EF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		2EE5BDA12BBBDD43008018EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2EE5BDA32BBBDD45008018EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2EE5BDA62BBBDD45008018EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2EE5BDA82BBBDD45008018EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2EE5BDB12BBBDE51008018EF /* UserAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthViewController.swift; sourceTree = "<group>"; };
+		2EE5BDB42BBBE881008018EF /* UiColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UiColor.swift; sourceTree = "<group>"; };
+		2EE5BDB72BBBF40F008018EF /* SecondUserAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondUserAuthViewController.swift; sourceTree = "<group>"; };
+		2EE5BDBA2BBC0221008018EF /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		2EE5BDBC2BC87CEF008018EF /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
+		2EE5BDBF2BCD14B3008018EF /* ScanQrButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanQrButton.swift; sourceTree = "<group>"; };
+		2EE5BDC32BCD1781008018EF /* CustonTapBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustonTapBarController.swift; sourceTree = "<group>"; };
+		2EE5BDC52BCD17EA008018EF /* CustomTapBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTapBar.swift; sourceTree = "<group>"; };
+		2EE5BDC72BD3CA7C008018EF /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +70,94 @@
 		2EE5BD992BBBDD43008018EF /* Coffe_House */ = {
 			isa = PBXGroup;
 			children = (
-				2EE5BD9A2BBBDD43008018EF /* AppDelegate.swift */,
-				2EE5BD9C2BBBDD43008018EF /* SceneDelegate.swift */,
-				2EE5BD9E2BBBDD43008018EF /* ViewController.swift */,
-				2EE5BDA02BBBDD43008018EF /* Main.storyboard */,
-				2EE5BDA32BBBDD45008018EF /* Assets.xcassets */,
+				2EE5BDB32BBBE625008018EF /* Extensions */,
+				2EE5BDB02BBBDD93008018EF /* Model */,
+				2EE5BDAF2BBBDD84008018EF /* assets */,
+				2EE5BDAE2BBBDD6F008018EF /* delegate */,
 				2EE5BDA52BBBDD45008018EF /* LaunchScreen.storyboard */,
 				2EE5BDA82BBBDD45008018EF /* Info.plist */,
 			);
 			path = Coffe_House;
+			sourceTree = "<group>";
+		};
+		2EE5BDAE2BBBDD6F008018EF /* delegate */ = {
+			isa = PBXGroup;
+			children = (
+				2EE5BD9C2BBBDD43008018EF /* SceneDelegate.swift */,
+				2EE5BD9A2BBBDD43008018EF /* AppDelegate.swift */,
+			);
+			path = delegate;
+			sourceTree = "<group>";
+		};
+		2EE5BDAF2BBBDD84008018EF /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				2EE5BDA32BBBDD45008018EF /* Assets.xcassets */,
+			);
+			path = assets;
+			sourceTree = "<group>";
+		};
+		2EE5BDB02BBBDD93008018EF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2EE5BDBE2BCD148A008018EF /* TapBar */,
+				2EE5BDB92BBC020A008018EF /* Menu */,
+				2EE5BDB62BBBF3EA008018EF /* Authorization */,
+				2EE5BDC72BD3CA7C008018EF /* CartViewController.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2EE5BDB32BBBE625008018EF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2EE5BDB42BBBE881008018EF /* UiColor.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		2EE5BDB62BBBF3EA008018EF /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				2EE5BDB12BBBDE51008018EF /* UserAuthViewController.swift */,
+				2EE5BDB72BBBF40F008018EF /* SecondUserAuthViewController.swift */,
+			);
+			path = Authorization;
+			sourceTree = "<group>";
+		};
+		2EE5BDB92BBC020A008018EF /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				2EE5BDBA2BBC0221008018EF /* MenuViewController.swift */,
+				2EE5BDBC2BC87CEF008018EF /* MenuTableViewCell.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		2EE5BDBE2BCD148A008018EF /* TapBar */ = {
+			isa = PBXGroup;
+			children = (
+				2EE5BDC12BCD1757008018EF /* CustomTabBar */,
+			);
+			path = TapBar;
+			sourceTree = "<group>";
+		};
+		2EE5BDC12BCD1757008018EF /* CustomTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				2EE5BDC32BCD1781008018EF /* CustonTapBarController.swift */,
+				2EE5BDC52BCD17EA008018EF /* CustomTapBar.swift */,
+				2EE5BDC22BCD1763008018EF /* ScanQr */,
+			);
+			path = CustomTabBar;
+			sourceTree = "<group>";
+		};
+		2EE5BDC22BCD1763008018EF /* ScanQr */ = {
+			isa = PBXGroup;
+			children = (
+				2EE5BDBF2BCD14B3008018EF /* ScanQrButton.swift */,
+			);
+			path = ScanQr;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +220,6 @@
 			files = (
 				2EE5BDA72BBBDD45008018EF /* LaunchScreen.storyboard in Resources */,
 				2EE5BDA42BBBDD45008018EF /* Assets.xcassets in Resources */,
-				2EE5BDA22BBBDD43008018EF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,8 +230,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2EE5BD9F2BBBDD43008018EF /* ViewController.swift in Sources */,
+				2EE5BDB22BBBDE51008018EF /* UserAuthViewController.swift in Sources */,
+				2EE5BDC02BCD14B3008018EF /* ScanQrButton.swift in Sources */,
+				2EE5BDC42BCD1781008018EF /* CustonTapBarController.swift in Sources */,
+				2EE5BDBB2BBC0221008018EF /* MenuViewController.swift in Sources */,
+				2EE5BDBD2BC87CEF008018EF /* MenuTableViewCell.swift in Sources */,
+				2EE5BDB52BBBE881008018EF /* UiColor.swift in Sources */,
 				2EE5BD9B2BBBDD43008018EF /* AppDelegate.swift in Sources */,
+				2EE5BDC82BD3CA7D008018EF /* CartViewController.swift in Sources */,
+				2EE5BDB82BBBF40F008018EF /* SecondUserAuthViewController.swift in Sources */,
+				2EE5BDC62BCD17EA008018EF /* CustomTapBar.swift in Sources */,
 				2EE5BD9D2BBBDD43008018EF /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,14 +247,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		2EE5BDA02BBBDD43008018EF /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2EE5BDA12BBBDD43008018EF /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		2EE5BDA52BBBDD45008018EF /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -297,7 +389,6 @@
 				INFOPLIST_FILE = Coffe_House/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -325,7 +416,6 @@
 				INFOPLIST_FILE = Coffe_House/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
