@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class SecondUserAuthViewController: UIViewController {
     
@@ -83,36 +84,38 @@ class SecondUserAuthViewController: UIViewController {
         view.addSubview(mainTitle)
         view.addSubview(mainTitle2)
         
-        NSLayoutConstraint.activate([
-            mainTitle.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 80),
-            mainTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            
-            mainTitle2.topAnchor.constraint(equalTo: mainTitle.bottomAnchor),
-            mainTitle2.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-        ])
+        mainTitle.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(80)
+            make.centerX.equalToSuperview()
+        }
+        
+        mainTitle2.snp.makeConstraints { make in
+            make.top.equalTo(mainTitle.snp.bottom)
+            make.centerX.equalToSuperview()
+        }
         
         view.addSubview(entranceTitle)
-        NSLayoutConstraint.activate([
-            entranceTitle.topAnchor.constraint(equalTo: mainTitle2.bottomAnchor, constant: 60),
-            entranceTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16)
-        ])
+        entranceTitle.snp.makeConstraints { make in
+            make.top.equalTo(mainTitle2.snp.bottom).offset(60)
+            make.leading.equalToSuperview().offset(16)
+        }
         
         view.addSubview(numberTextField)
-        NSLayoutConstraint.activate([
-            numberTextField.topAnchor.constraint(equalTo: entranceTitle.bottomAnchor, constant: 32),
-            numberTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            numberTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            numberTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            numberTextField.heightAnchor.constraint(equalToConstant: 56)
-        ])
+        numberTextField.snp.makeConstraints { make in
+            make.top.equalTo(entranceTitle.snp.bottom).offset(32)
+            make.centerX.equalToSuperview()
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
+            make.height.equalTo(56)
+        }
         
         view.addSubview(signInButton)
-        NSLayoutConstraint.activate([
-            signInButton.topAnchor.constraint(equalTo: numberTextField.bottomAnchor, constant: 20),
-            signInButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            signInButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            signInButton.heightAnchor.constraint(equalToConstant: 56)
-        ])
+        signInButton.snp.makeConstraints { make in
+            make.top.equalTo(numberTextField.snp.bottom).offset(20)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
+            make.height.equalTo(56)
+        }
     }
     
     deinit {

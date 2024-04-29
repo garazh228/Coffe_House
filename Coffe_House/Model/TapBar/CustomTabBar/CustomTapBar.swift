@@ -33,12 +33,13 @@ class CustomTapBar: UITabBar {
     
     private func setupScanQrButton() {
         addSubview(scanQrButton)
-        NSLayoutConstraint.activate([
-            scanQrButton.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -60),
-            scanQrButton.centerXAnchor.constraint(equalTo:  centerXAnchor),
-            scanQrButton.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.7),
-            scanQrButton.widthAnchor.constraint(equalTo: heightAnchor, multiplier: 0.7)
-        ])
+        
+        scanQrButton.snp.makeConstraints { make in
+            make.centerY.equalToSuperview().offset(-60)
+            make.centerX.equalToSuperview()
+            make.height.equalToSuperview().multipliedBy(0.7)
+            make.width.equalTo(scanQrButton.snp.height).multipliedBy(1.0)
+        }
         
         scanQrButton.backgroundColor = .systemOrange
     }

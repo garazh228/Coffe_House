@@ -6,9 +6,15 @@
 //
 
 import UIKit
+import SnapKit
+
+enum MenuType {
+    case coffee
+    case dessert
+}
 
 class MenuViewController: UIViewController {
-
+    
     private lazy var tabBarStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
@@ -18,7 +24,7 @@ class MenuViewController: UIViewController {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
-
+    
     private lazy var coffeeButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Кофе", for: .normal)
@@ -27,7 +33,7 @@ class MenuViewController: UIViewController {
         button.addTarget(self, action: #selector(tapButtonTapped), for: .touchUpInside)
         return button
     }()
-
+    
     private lazy var dessertsButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Десерты", for: .normal)
@@ -36,7 +42,7 @@ class MenuViewController: UIViewController {
         button.addTarget(self, action: #selector(tapButtonTapped), for: .touchUpInside)
         return button
     }()
-
+    
     private lazy var bakeryButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Выпечка", for: .normal)
@@ -45,7 +51,7 @@ class MenuViewController: UIViewController {
         button.addTarget(self, action: #selector(tapButtonTapped), for: .touchUpInside)
         return button
     }()
-
+    
     private lazy var cocktailsButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Коктейли", for: .normal)
@@ -54,7 +60,7 @@ class MenuViewController: UIViewController {
         button.addTarget(self, action: #selector(tapButtonTapped), for: .touchUpInside)
         return button
     }()
-
+    
     private lazy var coffeeTitle: UILabel = {
         let title = UILabel()
         title.text = "Кофе"
@@ -63,7 +69,7 @@ class MenuViewController: UIViewController {
         title.translatesAutoresizingMaskIntoConstraints = false
         return title
     }()
-
+    
     private lazy var menuTableView: UITableView = {
         let view = UITableView()
         view.delegate = self
@@ -72,19 +78,13 @@ class MenuViewController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-
-    private let items: [MenuItem] = [
-        MenuItem(title: "Капучино", description: "Кофейный напиток", price: "140c", image: UIImage(named: "1"), counter: 0),
-        MenuItem(title: "Латте", description: "Кофейный напиток", price: "140c", image: UIImage(named: "2"), counter: 0),
-        MenuItem(title: "Американо", description: "Кофейный напиток", price: "100c", image: UIImage(named: "3"), counter: 0),
-        MenuItem(title: "Раф", description: "Кофейный напиток", price: "170c", image: UIImage(named: "4"), counter: 0),
-        MenuItem(title: "Эспрессо", description: "Кофейный напиток", price: "100c", image: UIImage(named: "5"), counter: 0),
-        MenuItem(title: "Мокко", description: "Кофейный напиток", price: "150c", image: UIImage(named: "6"), counter: 0)
-    ]
-
-
+    
+    private var currentMenu: MenuType = .coffee
+    
+    private var items: [MenuItem] = []
+    
     // MARK: - Initialization
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -92,83 +92,108 @@ class MenuViewController: UIViewController {
         navigationItem.title = "Меню"
         
         navigationItem.hidesBackButton = true
-
+        
         setupConst()
+        
+        if let products = JSONParser.parseProducts(from: "products") {
+            items = products
+            menuTableView.reloadData()
+        }
     }
-
+    
     private func setupConst() {
         view.addSubview(tabBarStackView)
-
-        NSLayoutConstraint.activate([
-            tabBarStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            tabBarStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tabBarStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tabBarStackView.heightAnchor.constraint(equalToConstant: 32)
-        ])
-
+        tabBarStackView.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+            make.height.equalTo(32)
+        }
+        
         view.addSubview(coffeeTitle)
-        NSLayoutConstraint.activate([
-            coffeeTitle.topAnchor.constraint(equalTo: tabBarStackView.bottomAnchor, constant: 20),
-            coffeeTitle.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16)
-        ])
-
+        coffeeTitle.snp.makeConstraints { make in
+            make.top.equalTo(tabBarStackView.snp.bottom).offset(20)
+            make.left.equalToSuperview().offset(16)
+        }
+        
         tabBarStackView.addArrangedSubview(coffeeButton)
         tabBarStackView.addArrangedSubview(dessertsButton)
         tabBarStackView.addArrangedSubview(bakeryButton)
         tabBarStackView.addArrangedSubview(cocktailsButton)
-
+        
         view.addSubview(menuTableView)
-        NSLayoutConstraint.activate([
-            menuTableView.topAnchor.constraint(equalTo: coffeeTitle.bottomAnchor, constant: 10),
-            menuTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            menuTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            menuTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-        ])
-
-        menuTableView.register(MenuTableViewCell.self, forCellReuseIdentifier: "MenuCell")
-    }
-
-    @objc private func tapButtonTapped(_ sender: UIButton) {
-
-        UIView.animate(withDuration: 0.3) {
-            self.coffeeButton.backgroundColor = nil
-            self.coffeeButton.tintColor = .black
-
-            self.dessertsButton.backgroundColor = nil
-            self.dessertsButton.tintColor = .black
-
-            self.bakeryButton.backgroundColor = nil
-            self.bakeryButton.tintColor = .black
-
-            self.cocktailsButton.backgroundColor = nil
-            self.cocktailsButton.tintColor = .black
+        menuTableView.snp.makeConstraints { make in
+            make.top.equalTo(coffeeTitle.snp.bottom).offset(10)
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
-
+        
+        menuTableView.register(MenuTableViewCell.self, forCellReuseIdentifier: "MenuCell")
+        
+        displayMenu(for: currentMenu)
+    }
+    
+    private func displayMenu(for menu: MenuType) {
+        switch menu {
+        case .coffee:
+            coffeeTitle.text = "Кофе"
+            items = [
+                ProductItem(title: "Капучино", description: "Кофейный напиток", price: "140c", image: "1", counter: 0),
+                ProductItem(title: "Латте", description: "Кофейный напиток", price: "140c", image: "2", counter: 0),
+                ProductItem(title: "Американо", description: "Кофейный напиток", price: "100c", image: "3", counter: 0),
+                ProductItem(title: "Раф", description: "Кофейный напиток", price: "170c", image: "4", counter: 0),
+                ProductItem(title: "Эспрессо", description: "Кофейный напиток", price: "100c", image: "5", counter: 0),
+                ProductItem(title: "Мокко", description: "Кофейный напиток", price: "150c", image: "6", counter: 0)
+            ].map { productItem -> MenuItem in
+                return MenuItem(title: productItem.title, description: productItem.description, price: productItem.price, image: UIImage(named: productItem.image)!, counter: productItem.counter)
+            }
+        case .dessert:
+            coffeeTitle.text = "Десерты"
+            items = [
+                ProductItem(title: "Чизкейк", description: "Сладкое блюдо", price: "200c", image: "cheesecake", counter: 0),
+                ProductItem(title: "Тирамису", description: "Сладкое блюдо", price: "150c", image: "tiramisu", counter: 0),
+                ProductItem(title: "Эклер", description: "Сладкое блюдо", price: "100c", image: "ekler", counter: 0),
+                ProductItem(title: "Панна-Котта", description: "Сладкое блюдо", price: "250c", image: "pannacotta", counter: 0),
+            ].map { productItem -> MenuItem in
+                return MenuItem(title: productItem.title, description: productItem.description, price: productItem.price, image: UIImage(named: productItem.image)!, counter: productItem.counter)
+            }
+        }
+        menuTableView.reloadData()
+    }
+    
+    @objc private func tapButtonTapped(_ sender: UIButton) {
+        
+        UIView.animate(withDuration: 0.3) {
+            self.resetButtonStyles()
+            
+            sender.backgroundColor = UIColor.black
+            sender.layer.cornerRadius = 16
+            sender.tintColor = .white
+        }
+        
         switch sender {
-
         case coffeeButton:
-            coffeeButton.backgroundColor = UIColor.black
-            coffeeButton.layer.cornerRadius = 16
-            coffeeButton.tintColor = .white
+            currentMenu = .coffee
         case dessertsButton:
-            dessertsButton.backgroundColor = UIColor.black
-            dessertsButton.layer.cornerRadius = 16
-            dessertsButton.tintColor = .white
-        case bakeryButton:
-            bakeryButton.backgroundColor = UIColor.black
-            bakeryButton.layer.cornerRadius = 16
-            bakeryButton.tintColor = .white
-        case cocktailsButton:
-            cocktailsButton.backgroundColor = UIColor.black
-            cocktailsButton.layer.cornerRadius = 16
-            cocktailsButton.tintColor = .white
+            currentMenu = .dessert
         default:
             break
         }
+        
+        displayMenu(for: currentMenu)
     }
     
     deinit {
         print("menuView deleted")
+    }
+    
+    private func resetButtonStyles() {
+        coffeeButton.backgroundColor = nil
+        coffeeButton.tintColor = .black
+        
+        dessertsButton.backgroundColor = nil
+        dessertsButton.tintColor = .black
     }
 }
 
@@ -181,16 +206,22 @@ extension MenuViewController: UITableViewDataSource {
         cell.selectionStyle = .none
         return cell
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
 }
 
 extension MenuViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 110
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedItem = items[indexPath.row]
+        let itemInfoVC = ItemInfoViewController()
+        itemInfoVC.item = selectedItem
+        navigationController?.pushViewController(itemInfoVC, animated: true)
+    }
 }
-
-

@@ -20,6 +20,13 @@
 		2EE5BDC42BCD1781008018EF /* CustonTapBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE5BDC32BCD1781008018EF /* CustonTapBarController.swift */; };
 		2EE5BDC62BCD17EA008018EF /* CustomTapBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE5BDC52BCD17EA008018EF /* CustomTapBar.swift */; };
 		2EE5BDC82BD3CA7D008018EF /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE5BDC72BD3CA7C008018EF /* CartViewController.swift */; };
+		2EE5BDCB2BD539D1008018EF /* ItemInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE5BDCA2BD539D1008018EF /* ItemInfoViewController.swift */; };
+		2EE5BDD12BDBAED4008018EF /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE5BDD02BDBAED4008018EF /* JSONParser.swift */; };
+		2EE5BE0F2BDE5BA8008018EF /* ProductItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE5BE0E2BDE5BA8008018EF /* ProductItem.swift */; };
+		2EE5BE122BDE64BD008018EF /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2EE5BE112BDE64BD008018EF /* SnapKit */; };
+		2EE5BE142BDE64BD008018EF /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 2EE5BE132BDE64BD008018EF /* SnapKit-Dynamic */; };
+		2EE5BE172BDFA674008018EF /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE5BE162BDFA674008018EF /* NetworkLayer.swift */; };
+		2EE5BE192BDFA7DD008018EF /* NetworkLayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE5BE182BDFA7DD008018EF /* NetworkLayerModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +45,12 @@
 		2EE5BDC32BCD1781008018EF /* CustonTapBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustonTapBarController.swift; sourceTree = "<group>"; };
 		2EE5BDC52BCD17EA008018EF /* CustomTapBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTapBar.swift; sourceTree = "<group>"; };
 		2EE5BDC72BD3CA7C008018EF /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		2EE5BDCA2BD539D1008018EF /* ItemInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInfoViewController.swift; sourceTree = "<group>"; };
+		2EE5BDCF2BDBACCA008018EF /* Products.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Products.json; sourceTree = "<group>"; };
+		2EE5BDD02BDBAED4008018EF /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
+		2EE5BE0E2BDE5BA8008018EF /* ProductItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductItem.swift; sourceTree = "<group>"; };
+		2EE5BE162BDFA674008018EF /* NetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
+		2EE5BE182BDFA7DD008018EF /* NetworkLayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayerModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +58,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EE5BE122BDE64BD008018EF /* SnapKit in Frameworks */,
+				2EE5BE142BDE64BD008018EF /* SnapKit-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +85,7 @@
 		2EE5BD992BBBDD43008018EF /* Coffe_House */ = {
 			isa = PBXGroup;
 			children = (
+				2EE5BE152BDFA65D008018EF /* NetworkLayer */,
 				2EE5BDB32BBBE625008018EF /* Extensions */,
 				2EE5BDB02BBBDD93008018EF /* Model */,
 				2EE5BDAF2BBBDD84008018EF /* assets */,
@@ -100,6 +116,8 @@
 		2EE5BDB02BBBDD93008018EF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2EE5BDCC2BDBAA4F008018EF /* products.json */,
+				2EE5BDC92BD539BE008018EF /* ItemInfo */,
 				2EE5BDBE2BCD148A008018EF /* TapBar */,
 				2EE5BDB92BBC020A008018EF /* Menu */,
 				2EE5BDB62BBBF3EA008018EF /* Authorization */,
@@ -160,6 +178,33 @@
 			path = ScanQr;
 			sourceTree = "<group>";
 		};
+		2EE5BDC92BD539BE008018EF /* ItemInfo */ = {
+			isa = PBXGroup;
+			children = (
+				2EE5BDCA2BD539D1008018EF /* ItemInfoViewController.swift */,
+			);
+			path = ItemInfo;
+			sourceTree = "<group>";
+		};
+		2EE5BDCC2BDBAA4F008018EF /* products.json */ = {
+			isa = PBXGroup;
+			children = (
+				2EE5BDCF2BDBACCA008018EF /* Products.json */,
+				2EE5BDD02BDBAED4008018EF /* JSONParser.swift */,
+				2EE5BE0E2BDE5BA8008018EF /* ProductItem.swift */,
+			);
+			path = products.json;
+			sourceTree = "<group>";
+		};
+		2EE5BE152BDFA65D008018EF /* NetworkLayer */ = {
+			isa = PBXGroup;
+			children = (
+				2EE5BE162BDFA674008018EF /* NetworkLayer.swift */,
+				2EE5BE182BDFA7DD008018EF /* NetworkLayerModel.swift */,
+			);
+			path = NetworkLayer;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -176,6 +221,10 @@
 			dependencies = (
 			);
 			name = Coffe_House;
+			packageProductDependencies = (
+				2EE5BE112BDE64BD008018EF /* SnapKit */,
+				2EE5BE132BDE64BD008018EF /* SnapKit-Dynamic */,
+			);
 			productName = Coffe_House;
 			productReference = 2EE5BD972BBBDD43008018EF /* Coffe_House.app */;
 			productType = "com.apple.product-type.application";
@@ -204,6 +253,9 @@
 				Base,
 			);
 			mainGroup = 2EE5BD8E2BBBDD43008018EF;
+			packageReferences = (
+				2EE5BE102BDE64BD008018EF /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 2EE5BD982BBBDD43008018EF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -231,11 +283,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				2EE5BDB22BBBDE51008018EF /* UserAuthViewController.swift in Sources */,
+				2EE5BDCB2BD539D1008018EF /* ItemInfoViewController.swift in Sources */,
 				2EE5BDC02BCD14B3008018EF /* ScanQrButton.swift in Sources */,
+				2EE5BE172BDFA674008018EF /* NetworkLayer.swift in Sources */,
 				2EE5BDC42BCD1781008018EF /* CustonTapBarController.swift in Sources */,
+				2EE5BDD12BDBAED4008018EF /* JSONParser.swift in Sources */,
 				2EE5BDBB2BBC0221008018EF /* MenuViewController.swift in Sources */,
 				2EE5BDBD2BC87CEF008018EF /* MenuTableViewCell.swift in Sources */,
 				2EE5BDB52BBBE881008018EF /* UiColor.swift in Sources */,
+				2EE5BE0F2BDE5BA8008018EF /* ProductItem.swift in Sources */,
+				2EE5BE192BDFA7DD008018EF /* NetworkLayerModel.swift in Sources */,
 				2EE5BD9B2BBBDD43008018EF /* AppDelegate.swift in Sources */,
 				2EE5BDC82BD3CA7D008018EF /* CartViewController.swift in Sources */,
 				2EE5BDB82BBBF40F008018EF /* SecondUserAuthViewController.swift in Sources */,
@@ -453,6 +510,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2EE5BE102BDE64BD008018EF /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2EE5BE112BDE64BD008018EF /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2EE5BE102BDE64BD008018EF /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		2EE5BE132BDE64BD008018EF /* SnapKit-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2EE5BE102BDE64BD008018EF /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = "SnapKit-Dynamic";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2EE5BD8F2BBBDD43008018EF /* Project object */;
 }

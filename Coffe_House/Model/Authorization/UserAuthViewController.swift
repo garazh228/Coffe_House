@@ -56,32 +56,33 @@ class UserAuthViewController: UIViewController {
     }
     
     private func setupConst() {
-        
         view.addSubview(mainTitle)
         view.addSubview(mainTitle2)
         
-        NSLayoutConstraint.activate([
-            mainTitle.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 160),
-            mainTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            
-            mainTitle2.topAnchor.constraint(equalTo: mainTitle.bottomAnchor),
-            mainTitle2.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-        ])
+        mainTitle.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(160)
+            make.centerX.equalToSuperview()
+        }
+        
+        mainTitle2.snp.makeConstraints { make in
+            make.top.equalTo(mainTitle.snp.bottom)
+            make.centerX.equalToSuperview()
+        }
         
         view.addSubview(signInButton)
-        NSLayoutConstraint.activate([
-            signInButton.topAnchor.constraint(equalTo: mainTitle2.bottomAnchor, constant: 98),
-            signInButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            signInButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            signInButton.heightAnchor.constraint(equalToConstant: 56)
-        ])
+        signInButton.snp.makeConstraints { make in
+            make.top.equalTo(mainTitle2.snp.bottom).offset(98)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
+            make.height.equalTo(56)
+        }
         
         view.addSubview(regButton)
-        NSLayoutConstraint.activate([
-            regButton.topAnchor.constraint(equalTo: signInButton.bottomAnchor, constant: 16),
-            regButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            regButton.heightAnchor.constraint(equalToConstant: 56)
-        ])
+        regButton.snp.makeConstraints { make in
+            make.top.equalTo(signInButton.snp.bottom).offset(16)
+            make.centerX.equalToSuperview()
+            make.height.equalTo(56)
+        }
     }
     
     deinit {

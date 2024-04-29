@@ -1,0 +1,83 @@
+{
+    "products": [
+        {
+            "title": "Капучино",
+            "description": "Кофейный напиток",
+            "price": "140c",
+            "image": "1.jpg",
+            "counter": 0
+        },
+        
+        {
+            "title": "Латте",
+            "description": "Кофейный напиток",
+            "price": "140c",
+            "image": "2.jpg",
+            "counter": 0
+        },
+        
+        {
+            "title": "Американо",
+            "description": "Кофейный напиток",
+            "price": "100c",
+            "image": "3.jpg",
+            "counter": 0
+        },
+        
+        {
+            "title": "Раф",
+            "description": "Кофейный напиток",
+            "price": "170c",
+            "image": "4.jpg",
+            "counter": 0
+        },
+        
+        {
+            "title": "Эспрессо",
+            "description": "Кофейный напиток",
+            "price": "100c",
+            "image": "5.jpg",
+            "counter": 0
+        },
+        
+        {
+            "title": "Мокко",
+            "description": "Кофейный напиток",
+            "price": "150c",
+            "image": "6.jpg",
+            "counter": 0
+        },
+        
+        {
+            "title": "Чизкейк",
+            "description": "Сладкое блюдо",
+            "price": "200c",
+            "image": "cheesecake.jpg",
+            "counter": 0
+        },
+        
+        {
+            "title": "Тирамису",
+            "description": "Сладкое блюдо",
+            "price": "100c",
+            "image": "tiramisu.jpg",
+            "counter": 0
+        },
+        
+        {
+            "title": "Эклер",
+            "description": "Сладкое блюдо",
+            "price": "250c",
+            "image": "ekler.jpg",
+            "counter": 0
+        },
+        
+        {
+            "title": "Панна-Котта",
+            "description": "Сладкое блюдо",
+            "price": "250c",
+            "image": "pannacotta.jpg",
+            "counter": 0
+        },
+    ]
+}

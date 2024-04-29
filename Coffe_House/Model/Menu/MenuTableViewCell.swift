@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 struct MenuItem {
     let title: String
@@ -71,7 +72,7 @@ class MenuTableViewCell: UITableViewCell {
     
     private lazy var counterLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 16)
+        label.font = UIFont.boldSystemFont(ofSize: 18)
         label.textColor = .black
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -84,10 +85,18 @@ class MenuTableViewCell: UITableViewCell {
         }
     }
     
+    @objc private func addButtonTapped() {
+        counter += 1
+    }
     
-    
+    @objc private func minusButtonTapped() {
+        if counter > 0 {
+            counter -= 1
+        }
+    }
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
         
         setupViews()
     }
@@ -103,48 +112,51 @@ class MenuTableViewCell: UITableViewCell {
         addSubview(titleLabel)
         addSubview(descriptionLabel)
         addSubview(priceLabel)
+        addSubview(counterLabel)
         
         contentView.addSubview(plusButton)
         contentView.addSubview(minusButton)
-        contentView.addSubview(counterLabel)
         
+        itemImageView.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(16)
+            make.top.equalToSuperview().offset(8)
+            make.bottom.equalToSuperview().offset(-8)
+            make.width.equalTo(100)
+        }
         
-        NSLayoutConstraint.activate([
-            //картинка
-            itemImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            itemImageView.topAnchor.constraint(equalTo: topAnchor, constant: 8),
-            itemImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8),
-            itemImageView.widthAnchor.constraint(equalToConstant: 95),
-            
-            //название
-            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
-            titleLabel.leadingAnchor.constraint(equalTo: itemImageView.trailingAnchor, constant: 16),
-            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
-            
-            //описание
-            descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 4),
-            descriptionLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
-            descriptionLabel.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
-            
-            //цена
-            priceLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 4),
-            priceLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
-            priceLabel.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
-            priceLabel.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor, constant: -8),
-            
-            plusButton.centerYAnchor.constraint(equalTo: centerYAnchor),
-            plusButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            plusButton.widthAnchor.constraint(equalToConstant: 32),
-            plusButton.heightAnchor.constraint(equalToConstant: 32),
-            
-            counterLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-            counterLabel.trailingAnchor.constraint(equalTo: plusButton.leadingAnchor, constant: -8),
-            
-            minusButton.centerYAnchor.constraint(equalTo: centerYAnchor),
-            minusButton.trailingAnchor.constraint(equalTo: counterLabel.leadingAnchor, constant: -8),
-            minusButton.widthAnchor.constraint(equalToConstant: 32),
-            minusButton.heightAnchor.constraint(equalToConstant: 32)
-        ])
+        titleLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(20)
+            make.leading.equalTo(itemImageView.snp.trailing).offset(16)
+            make.trailing.equalToSuperview().offset(-8)
+        }
+        
+        descriptionLabel.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(4)
+            make.leading.trailing.equalTo(titleLabel)
+        }
+        
+        priceLabel.snp.makeConstraints { make in
+            make.top.equalTo(descriptionLabel.snp.bottom).offset(4)
+            make.leading.trailing.equalTo(titleLabel)
+            make.bottom.lessThanOrEqualToSuperview().offset(-8)
+        }
+        
+        counterLabel.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.leading.equalTo(minusButton.snp.trailing).offset(2)
+        }
+        
+        minusButton.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.trailing.equalTo(plusButton.snp.leading).offset(-16)
+            make.width.height.equalTo(40)
+        }
+        
+        plusButton.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.trailing.equalToSuperview().offset(-16)
+            make.width.height.equalTo(40)
+        }
     }
     
     func configure(with item: MenuItem) {
@@ -152,15 +164,5 @@ class MenuTableViewCell: UITableViewCell {
         titleLabel.text = item.title
         descriptionLabel.text = item.description
         priceLabel.text = item.price
-    }
-    
-    @objc private func addButtonTapped() {
-        counter += 1
-    }
-    
-    @objc private func minusButtonTapped() {
-        if counter > 0 {
-            counter -= 1
-        }
     }
 }
